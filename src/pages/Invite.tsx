@@ -22,7 +22,7 @@ const WOMAN = new Set([
 ])
 
 function TitleLines() {
-  const lines = ["HEY IT’S", "TIME TO", "SUIT UP"]
+  const lines = ["Kas! IT’S", "TIME TO", "SUIT UP"]
   return (
     <div aria-label="headline" className="headline">
       <AnimatePresence>

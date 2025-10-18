@@ -1,22 +1,57 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+const ALLOWED = new Set([
+  'joshua',
+  'ian',
+  'duane',
+  'janus',
+  'clinton',
+  'mauen',
+  'shane',
+  'sheng'
+])
 
 const IMAGE_MAP: Record<string, string[]> = {
   joshua: [
-    "https://images.unsplash.com/photo-1592878849128-9fdc2e7984ba?w=1400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1519092437326-bfd121eb53ae?w=1400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1520975922284-8b456906c813?w=1400&auto=format&fit=crop",
+    "/joshua/1.JPG",
+    "/joshua/2.JPG",
+    "/joshua/3.JPG",
   ],
   ian: [
-    "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=1400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1400&auto=format&fit=crop",
+    "/ian/1.JPG",
+    "/ian/2.JPG",
+    "/ian/3.JPG",
   ],
   duane: [
-    "https://images.unsplash.com/photo-1501706362039-c06b2d715385?w=1400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1400&auto=format&fit=crop",
+     "/duane/1.JPG",
+    "/duane/2.JPG",
+    "/duane/3.JPG",
+  ],
+  janus: [
+     "/janus/1.JPG",
+    "/janus/2.JPG",
+    "/janus/3.JPG",
+  ],
+  clinton: [
+     "/clinton/1.JPG",
+    "/clinton/2.JPG",
+    "/clinton/3.JPG",
+  ],
+  mauen: [
+     "/mauen/1.JPG",
+    "/mauen/2.JPG",
+    "/mauen/3.JPG",
+  ],
+  shane: [
+     "/shane/1.JPG",
+    "/shane/2.JPG",
+    "/shane/3.JPG",
+  ],
+  sheng: [
+     "/sheng/1.JPG",
+    "/sheng/2.JPG",
+    "/sheng/3.JPG",
   ],
 };
 
@@ -28,6 +63,7 @@ export default function GalleryPage() {
   const navigate = useNavigate();
   const key = name.toLowerCase().trim();
   const IMAGES = IMAGE_MAP[key] ?? DEFAULT_IMAGES;
+  const allowed = ALLOWED.has(key)
 
   const [viewportW, setViewportW] = useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 0
@@ -65,6 +101,9 @@ export default function GalleryPage() {
   // =========================
   // MOBILE LAYOUT
   // =========================
+  if (!allowed) {
+    return <></>
+  }
   if (isMobile) {
     return (
       <main className="wrap" ref={viewportRef}>
