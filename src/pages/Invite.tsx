@@ -21,6 +21,12 @@ const WOMAN = new Set([
   'sheng'
 ])
 
+const POSITION = {
+  duane: "To Clothe us one with the Veil of Hope",
+  ian: "To Bind us together with the Cord of Love",
+  shane: "To Light our path with the Candle of Faith"
+}
+
 function TitleLines() {
   const lines = ["Kas! IT’S", "TIME TO", "SUIT UP"]
   return (
@@ -63,8 +69,7 @@ export default function Invite() {
   const is_bestman = BESTMAN.has(value)
   // Pretty print (uppercase with spacing similar to mock)
   const pretty = raw ? raw.toUpperCase() : 'YOUR NAME'
-
-
+  const position = POSITION[name] || "Need you there Kas!";
   if (!allowed) {
    return  <></>
   }
@@ -102,6 +107,14 @@ export default function Invite() {
         >
           Will you be my {is_bestman ? "best man" : is_woman ? "groomsmaid" : "groomsman"}?
         </motion.div>
+        <motion.div
+            className="special-question"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.45, duration: 0.6 }}
+        >
+          {position}
+        </motion.div>
 
         <div className="divider-space"></div>
 
@@ -119,7 +132,7 @@ export default function Invite() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.6 }}
         >
-          St. John Marie Vianney Parish
+          St. John Marie Vianney Parish Silang Cavite
         </motion.div>
         <motion.div
           className="meta muted"
@@ -127,7 +140,7 @@ export default function Invite() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.7, duration: 0.6 }}
         >
-          Tagaytay City
+          Venue: Tagaytay City
         </motion.div>
 
         <div className="divider-space"></div>
