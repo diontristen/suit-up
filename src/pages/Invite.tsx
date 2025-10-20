@@ -27,8 +27,16 @@ const POSITION = {
   shane: "To Light our path with the Candle of Faith"
 }
 
-function TitleLines() {
-  const lines = ["Kas! IT’S", "TIME TO", "SUIT UP"]
+const CALL = {
+  duane: "KABSAT",
+  mauen: "PAPS",
+  sheng: "PAPS",
+  shane: "BEH"
+}
+
+function TitleLines({ call, female }) {
+  const dress = female ? "DRESS UP" : "SUIT UP"
+  const lines = [`${call}! IT’S`, "TIME TO", dress]
   return (
     <div aria-label="headline" className="headline">
       <AnimatePresence>
@@ -69,7 +77,10 @@ export default function Invite() {
   const is_bestman = BESTMAN.has(value)
   // Pretty print (uppercase with spacing similar to mock)
   const pretty = raw ? raw.toUpperCase() : 'YOUR NAME'
-  const position = POSITION[name] || "Need you there Kas!";
+  const position = POSITION[name] || "Need you there to guide us in our way";
+  const call = CALL[name] || "Kas"
+
+  const female = name === "shane" || name === "sheng";
   if (!allowed) {
    return  <></>
   }
@@ -86,7 +97,7 @@ export default function Invite() {
           DION &amp; LOVE
         </motion.div>
 
-        <TitleLines />
+        <TitleLines call={call} female={female}/>
 
         <Bowtie />
 
