@@ -22,6 +22,7 @@ const WOMAN = new Set([
 ])
 
 const POSITION = {
+  joshua: "Need you to be with me to wait for my bride",
   duane: "To Clothe us one with the Veil of Hope",
   ian: "To Bind us together with the Cord of Love",
   shane: "To Light our path with the Candle of Faith"
