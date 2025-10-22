@@ -136,7 +136,7 @@ export default function Invite() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6 }}
         >
-          Tuesday 2pm 08 September 2026
+          Tuesday 1:00pm 08 September 2026
         </motion.div>
         <motion.div
           className="meta muted"
