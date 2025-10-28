@@ -136,7 +136,7 @@ export default function Invite() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6 }}
         >
-          Tuesday 2pm 08 September 2026
+          Tuesday 1pm 08 September 2026
         </motion.div>
         <motion.div
           className="meta muted"
@@ -144,17 +144,8 @@ export default function Invite() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.6 }}
         >
-          St. John Marie Vianney Parish Silang Cavite
+          Tagaytay City
         </motion.div>
-        <motion.div
-          className="meta muted"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.7, duration: 0.6 }}
-        >
-          Venue: Tagaytay City
-        </motion.div>
-
         <div className="divider-space"></div>
       </div>
     </div>
